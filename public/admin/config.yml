@@ -1,0 +1,17 @@
+# Esto le dice a Decap que use el sistema de archivos local para pruebas
+local_backend: true 
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: "public/images"
+public_folder: "/images"
+
+collections:
+  - name: "blog"
+    label: "Blog"
+    folder: "content/blog" # Aquí se guardarán tus archivos .md
+    create: true
+    fields:
+      - { label: "Título", name: "title", widget: "string" }
+      - { label: "Cuerpo", name: "body", widget: "markdown" }
