@@ -23,21 +23,24 @@ import { getSortedPostsData } from '../lib/posts';
 export default function Home() {
   return (
 
+    /*div principal*/
     <div className=''>
+      
       <div className=' mx-10 flex flex-col h-1/2 px-10 pt-80 pb-20 bg-amber-200'>
         <div className='flex flex-col'>
           <h1 className=" text-4xl font-bold">Titulo Hero</h1>
           <p className="mt-4">Contenido referente al titulo</p>
         </div>  
       </div>
-
-      <div className=' flex flex-col justify-around  mt-20 mx-20 '>
+    
+    
+      <section className=' flex flex-col justify-around  mt-20 mx-10 '>
         <div className='flex w-full justify-between px-20 items-center bg-amber-200'>
           <h1 className='text-2xl font-bold'>Nuestros Proyectos</h1>
           <h1>Ver todos los proyectos</h1>
         </div>
 
-        <div className='flex justify-center mt-20 bg-amber-200'>
+        <div className='flex justify-center mt-10 bg-amber-200'>
           <div className=' py-40 px-50 m-5 border rounded-xl bg-amber-400'>
             <h1>
               imagen
@@ -53,7 +56,7 @@ export default function Home() {
           </div>
         </div>
 
-        <div className='flex justify-center mt-20 bg-amber-200'>
+        <div className='flex justify-center mt-10 bg-amber-200'>
           <div className=' py-40 px-20 m-5 border rounded-xl bg-amber-400'>
             <h1>
               Titulo del Proyecto
@@ -69,7 +72,49 @@ export default function Home() {
           </div>
         </div>
 
-      </div>
+      </section>
+
+      <section className=' flex flex-col justify-around  mt-20 mx-10'>
+       <div className='flex w-full justify-between px-20 items-center bg-amber-200'>
+          <h1 className='text-2xl font-bold'>Junta Directiva</h1>
+          <h1>Ver a todos los Colaboradores</h1>
+        </div>
+
+        <div className='flex flex-col'>
+          <div className='flex flex-row justify-center'>
+            <div className='py-40 px-30 m-5 border rounded-xl bg-amber-400'>
+              <h1>Presidente</h1>
+            </div>
+            <div className='py-40 px-30 m-5 border rounded-xl bg-amber-400'>
+              <h1>Vicepresidente</h1>
+            </div>
+          </div>
+          <div className='flex flex-row justify-center'>
+            <div className='py-40 px-30 m-5 border rounded-xl bg-amber-400'>
+              <h1>Secretario/a</h1>
+            </div>
+            <div className='py-40 px-30 m-5 border rounded-xl bg-amber-400'>  
+              <h1>Tesorero</h1>
+            </div>
+            <div className='py-40 px-30 m-5 border rounded-xl bg-amber-400'>
+              <h1>Macero</h1>
+            </div>            
+          </div>
+        </div>
+      </section>
+
+      <section className=' flex flex-col justify-around  mt-20  bg-[#d41367]'>
+        <div className='flex flex-row justify-center gap-10'>
+          <div className='py-30 px-30 my-10 max-w-xl border rounded-xl bg-amber-200'>
+            <h1 className='text-2xl font-bold'>Contactanos</h1>
+            <h1>¿Tienes dudas, quieres colaborar o simplemente decir hola?
+            Nuestro equipo de liderazgo está listo para escucharte.</h1>
+          </div>
+          <div className='py-40 px-30 my-10 max-w-xl border rounded-xl bg-amber-200'>
+
+          </div>
+        </div>
+      </section>
     </div>
   );
 }
