@@ -1,6 +1,6 @@
 export default function Footer() {
     return (
-    <footer className="w-full border-t border-gray-200 mt-23 bg-white">
+    <footer className="w-full border-t border-gray-200 bg-white">
       <div className="h-[4px] w-full bg-[#d41367]"></div>
       {/* Contenedor Principal */}
       <div className="px-10 mx-30 md:px-20 py-6 flex flex-col">
