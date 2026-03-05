@@ -3,15 +3,48 @@ local_backend: true
 backend:
   name: git-gateway
   branch: main
+publish_mode: editorial_workflow # va a hacer que el usuario pueda crear "borradores" con el fin de no tener que hacer un commit para cada cambio sis no que puede hacer todo el proceso y luego subirlo
 
-media_folder: "public/images"
-public_folder: "/images"
+
+media_folder: "public/images" # Las fotos se guardan físicamente aquí
+public_folder: "/images"       # Next.js las buscará en esta ruta
 
 collections:
-  - name: "blog"
-    label: "Blog"
-    folder: "content/blog" # Aquí se guardarán tus archivos .md
+  - name: "principalpageresources"
+    label: "recursos de la página principal"
+    folder: "content/principalpageresources" # Aquí se guardarán tus archivos .md
     create: true
     fields:
       - { label: "Título", name: "title", widget: "string" }
-      - { label: "Cuerpo", name: "body", widget: "markdown" }
+      - { label: "descripcion", name: "descripcion", widget: "text" }
+      - { label: "Imagen", name: "thumbnail", widget: "image" }
+
+
+  - name: "projects"
+    label: "Proyectos"
+    folder: "content/projects"
+    create: true
+    fields:
+      - { label: "Comite", name: "comittee", widget: "select", options: ["Comité 1", "Comité 2", "Comité 3"] }
+      - { label: "Titulo", name: "title", widget: "string" }
+      - { label: "Descripción", name: "description", widget: "text" }
+      - { label: "Imagen", name: "thumbnail", widget: "image" }
+
+  - name: "socios"
+    label: "Socios"
+    folder: "content/socios"
+    create: true
+    fields:
+      - { label: "Nombre", name: "name", widget: "string" }
+      - { label: "Foto", name: "image", widget: "image" }
+      - label: "Cargo Directivo"
+        name: "role"
+        widget: "select"
+        default: "Miembro" # Si no tiene cargo, será un miembro común
+        options:
+          - { label: "Ninguno / Miembro", value: "Miembro" }
+          - { label: "Presidente", value: "Presidente" }
+          - { label: "Vicepresidente", value: "Vicepresidente" }
+          - { label: "Secretaria", value: "Secretaria" }
+          - { label: "Tesorero", value: "Tesorero" }
+          - { label: "Macero", value: "Macero" }
