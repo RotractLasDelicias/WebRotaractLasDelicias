@@ -17,11 +17,11 @@ export default function Header() {
 
         {/* Lado Derecho: Botones (Ocultos en móvil, flex en escritorio) */}
         {/* 'space-x-8' controla la distancia entre los botones */}
-        <ul className="hidden md:flex space-x-8 font-medium text-gray-700">
-          <li><Link href="/" className="hover:text-[#d41367] transition">Inicio</Link></li>
-          <li><Link href="/proyectos" className="hover:text-[#d41367] transition">Proyectos</Link></li>
-          <li><Link href="/contribuyentes" className="hover:text-[#d41367] transition">Contribuyentes</Link></li>
-          <li><Link href="/contacto" className="hover:text-[#d41367] transition">Contáctanos</Link></li>
+        <ul className="hidden md:flex space-x-8 font-medium text-black">
+          <li><Link href="/" className="text-black hover:text-[#d41367] transition">Inicio</Link></li>
+          <li><Link href="/proyectos" className="text-black hover:text-[#d41367] transition">Proyectos</Link></li>
+          <li><Link href="/contribuyentes" className="text-black hover:text-[#d41367] transition">Contribuyentes</Link></li>
+          <li><Link href="/contacto" className="text-black hover:text-[#d41367] transition">Contáctanos</Link></li>
         </ul>
 
         {/* Botón de Menú para móvil (Solo visual de momento) */}
