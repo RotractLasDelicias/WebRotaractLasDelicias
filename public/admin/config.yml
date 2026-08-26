@@ -3,15 +3,74 @@ local_backend: true
 backend:
   name: git-gateway
   branch: main
+publish_mode: editorial_workflow # va a hacer que el usuario pueda crear "borradores" con el fin de no tener que hacer un commit para cada cambio sis no que puede hacer todo el proceso y luego subirlo
 
-media_folder: "public/images"
-public_folder: "/images"
+
+media_folder: "public/images" # Las fotos se guardan físicamente aquí
+public_folder: "/images"       # Next.js las buscará en esta ruta
 
 collections:
-  - name: "blog"
-    label: "Blog"
-    folder: "content/blog" # Aquí se guardarán tus archivos .md
+  - name: "principalpageresources"
+    label: "recursos de la página principal"
+    folder: "content/principalpageresources" # Aquí se guardarán tus archivos .md
     create: true
     fields:
       - { label: "Título", name: "title", widget: "string" }
-      - { label: "Cuerpo", name: "body", widget: "markdown" }
+      - { label: "descripcion", name: "descripcion", widget: "text" }
+      - { label: "Imagen", name: "thumbnail", widget: "image" }
+
+
+  - name: "projects"
+    label: "Proyectos"
+    folder: "content/projects"
+    create: true
+    fields:
+      - { label: "Comite", name: "comittee", widget: "select", options: ["Comité 1", "Comité 2", "Comité 3"] }
+      - { label: "Titulo", name: "title", widget: "string" }
+      - { label: "Descripción", name: "description", widget: "text" }
+      - { label: "Imagen", name: "thumbnail", widget: "image" }
+
+  - name: "socios"
+    label: "Socios"
+    folder: "content/socios"
+    create: true
+    fields:
+      - { label: "Nombre", name: "name", widget: "string" }
+      - { label: "Foto", name: "image", widget: "image" }
+      - label: "Cargo Directivo"
+        name: "role"
+        widget: "select"
+        default: "Miembro" # Si no tiene cargo, será un miembro común
+        options:
+          - { label: "Ninguno / Miembro", value: "Miembro" }
+          - { label: "Presidente", value: "Presidente" }
+          - { label: "Vicepresidente", value: "Vicepresidente" }
+          - { label: "Secretaria", value: "Secretaria" }
+          - { label: "Tesorero", value: "Tesorero" }
+          - { label: "Macero", value: "Macero" }
+  
+  - name: "company_info"       # <--- 1. Nombre interno de la colección en el CMS
+    label: "Información General" # <--- 2. Título visible en el menú lateral de Decap
+    files:                     # <--- 3. Indica que esta colección tiene archivos individuales específicos
+      - name: "objectives"     # <--- 4. Identificador interno de este archivo en particular
+        label: "Mision, Vision y Objetivos de la Organización" # <--- 5. Título visible de esta sección en el CMS
+        file: "content/settings/objectives.md" # <--- 6. Ruta y nombre FÍSICO real del archivo en tu disco
+        fields:                # <--- 7. Los campos del formulario que el usuario va a llenar
+          - { label: "Titulo", name: "title", widget: "string" }
+          - { label: "Misión", name: "mission", widget: "text" }
+          - { label: "Visión", name: "vision", widget: "text" }
+          - label: "Lista de Objetivos"
+            name: "objectivesList"
+            widget: "list"
+            field: { label: "Objetivo", name: "objective", widget: "string" }
+
+  - name: "events"
+    label: "Calendario de Actividades"
+    folder: "content/calendaryEvents" # Se crea un .md por cada evento
+    create: true
+    fields:
+      - { label: "Título de la Actividad", name: "title", widget: "string" }
+      - { label: "Fecha y Hora de Inicio", name: "startDate", widget: "datetime" }
+      - { label: "Fecha y Hora de Fin", name: "endDate", widget: "datetime", required: false }
+      - { label: "Descripción", name: "description", widget: "text", required: false }
+      - { label: "Ubicación", name: "location", widget: "string", required: false }
