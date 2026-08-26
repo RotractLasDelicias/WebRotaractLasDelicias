@@ -25,7 +25,7 @@ export default function ContactoPage() {
 
         <div className='bg-[#d41367] text-white p-6 rounded-xl'>
           <h2 className='text-2xl font-bold mb-3'>Nuestros datos</h2>
-          <p>Teléfono: +52 123 456 789</p>
+          <p>Teléfono: +58 000 00 00</p>
           <p>Email: info@webrtc-las-delicias.org</p>
           <p className='mt-4'>Nuestros colores están inspirados en la marca: fucsia para acción y amarillo para energía comunitaria.</p>
         </div>

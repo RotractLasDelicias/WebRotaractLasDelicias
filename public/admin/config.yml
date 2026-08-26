@@ -48,3 +48,29 @@ collections:
           - { label: "Secretaria", value: "Secretaria" }
           - { label: "Tesorero", value: "Tesorero" }
           - { label: "Macero", value: "Macero" }
+  
+  - name: "company_info"       # <--- 1. Nombre interno de la colección en el CMS
+    label: "Información General" # <--- 2. Título visible en el menú lateral de Decap
+    files:                     # <--- 3. Indica que esta colección tiene archivos individuales específicos
+      - name: "objectives"     # <--- 4. Identificador interno de este archivo en particular
+        label: "Mision, Vision y Objetivos de la Organización" # <--- 5. Título visible de esta sección en el CMS
+        file: "content/settings/objectives.md" # <--- 6. Ruta y nombre FÍSICO real del archivo en tu disco
+        fields:                # <--- 7. Los campos del formulario que el usuario va a llenar
+          - { label: "Titulo", name: "title", widget: "string" }
+          - { label: "Misión", name: "mission", widget: "text" }
+          - { label: "Visión", name: "vision", widget: "text" }
+          - label: "Lista de Objetivos"
+            name: "objectivesList"
+            widget: "list"
+            field: { label: "Objetivo", name: "objective", widget: "string" }
+
+  - name: "events"
+    label: "Calendario de Actividades"
+    folder: "content/calendaryEvents" # Se crea un .md por cada evento
+    create: true
+    fields:
+      - { label: "Título de la Actividad", name: "title", widget: "string" }
+      - { label: "Fecha y Hora de Inicio", name: "startDate", widget: "datetime" }
+      - { label: "Fecha y Hora de Fin", name: "endDate", widget: "datetime", required: false }
+      - { label: "Descripción", name: "description", widget: "text", required: false }
+      - { label: "Ubicación", name: "location", widget: "string", required: false }
