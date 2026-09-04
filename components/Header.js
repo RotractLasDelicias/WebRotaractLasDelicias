@@ -36,13 +36,13 @@ export default function Header() {
             </Link>
           </li>
           <li>
-            <Link href="/proyectos" className="text-gray-800 text-lg hover:text-[#d41367] transition-colors">
-              Proyectos
+            <Link href="/nosotros" className="text-gray-800 text-lg hover:text-[#d41367] transition-colors">
+              Nosotros
             </Link>
           </li>
           <li>
-            <Link href="/nosotros" className="text-gray-800 text-lg hover:text-[#d41367] transition-colors">
-              Nosotros
+            <Link href="/unirse" className="text-gray-800 text-lg hover:text-[#d41367] transition-colors">
+              ¿Unirse?
             </Link>
           </li>
         </ul>
@@ -98,15 +98,6 @@ export default function Header() {
             </li>
             <li className="w-full">
               <Link 
-                href="/proyectos" 
-                onClick={() => setIsOpen(false)}
-                className="block text-gray-800 text-lg hover:text-[#d41367] py-1 transition-colors"
-              >
-                Proyectos
-              </Link>
-            </li>
-            <li className="w-full">
-              <Link 
                 href="/nosotros" 
                 onClick={() => setIsOpen(false)}
                 className="block text-gray-800 text-lg hover:text-[#d41367] py-1 transition-colors"
@@ -114,6 +105,16 @@ export default function Header() {
                 Nosotros
               </Link>
             </li>
+            <li className="w-full">
+              <Link 
+                href="/unirse" 
+                onClick={() => setIsOpen(false)}
+                className="block text-gray-800 text-lg hover:text-[#d41367] py-1 transition-colors"
+              >
+                ¿Unirse?
+              </Link>
+            </li>
+
 
             {/* Botón de Contáctanos en la parte inferior */}
             <li className="w-full pt-4 border-t border-gray-100 flex justify-center">

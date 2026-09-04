@@ -19,14 +19,14 @@ export default function ProximosPlanes({ planes = [] }: ProximosPlanesProps) {
   const hasMoreThanThree = planes.length > 3;
 
   return (
-    <section className='px-4 pt-20 md:px-10 my-16 md:my-24 max-w-7xl mx-auto'>
+    <section className='px-4 pb-20 md:px-10 my-16 md:my-24 max-w-7xl mx-auto'>
       
       {/* Encabezado */}
       <div className='flex flex-col items-center text-center mb-10 md:mb-14'>
         <h2 className='text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-gray-900 tracking-tight'>
           Nuestros próximos planes
         </h2>
-        <p className='mt-3 sm:mt-4 text-base sm:text-lg md:text-xl text-gray-600 max-w-2xl leading-relaxed'>
+        <p className='mt-3 sm:mt-4 text-base sm:text-lg md:text-2xl text-gray-600 max-w-2xl leading-relaxed'>
           Conoce las actividades y metas que estaremos ejecutando próximamente en nuestra comunidad.
         </p>
       </div>
