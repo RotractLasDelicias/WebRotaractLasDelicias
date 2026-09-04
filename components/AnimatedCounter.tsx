@@ -1,60 +1,41 @@
-'use client'
-import { useEffect, useState, useRef } from 'react'
+import { Counter } from '../components/Counter';
 
-interface CounterProps {
-  end: number
-  duration?: number
-  suffix?: string
-}
+export default function AnimatedCounter() {
+    return (
+        <section className='my-12 pb-20 md:my-20 px-4 md:px-10 max-w-7xl mx-auto'>
+          <div className='grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 items-stretch'>
+            
+            {/* Tarjeta 1 */}
+            <div className='flex flex-col items-center justify-center bg-[#d41367] text-white rounded-2xl md:rounded-3xl shadow-lg hover:shadow-xl transition-shadow py-8 md:py-10 px-6 text-center border border-white/10'>
+              <span className='text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight mb-1'>
+                <Counter end={200} suffix='+' />
+              </span>
+              <p className='text-base sm:text-lg lg:text-xl font-medium text-white/90 capitalize tracking-wide'>
+                Beneficiados
+              </p>
+            </div>
 
-export function AnimatedCounter({ end, duration = 2000, suffix = '' }: CounterProps) {
-  const [count, setCount] = useState(0)
-  const countRef = useRef<HTMLSpanElement>(null)
-  const [isVisible, setIsVisible] = useState(false)
+            {/* Tarjeta 2 */}
+            <div className='flex flex-col items-center justify-center bg-[#d41367] text-white rounded-2xl md:rounded-3xl shadow-lg hover:shadow-xl transition-shadow py-8 md:py-10 px-6 text-center border border-white/10'>
+              <span className='text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight mb-1'>
+                <Counter end={20} />
+              </span>
+              <p className='text-base sm:text-lg lg:text-xl font-medium text-white/90 capitalize tracking-wide'>
+                Socios activos
+              </p>
+            </div>
 
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true)
-        }
-      },
-      { threshold: 0.3 } // Se activa cuando el 30% del componente es visible
-    )
+            {/* Tarjeta 3 */}
+            <div className='flex flex-col items-center justify-center bg-[#d41367] text-white rounded-2xl md:rounded-3xl shadow-lg hover:shadow-xl transition-shadow py-8 md:py-10 px-6 text-center border border-white/10'>
+              <span className='text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight mb-1'>
+                <Counter end={10} suffix='+' />
+              </span>
+              <p className='text-base sm:text-lg lg:text-xl font-medium text-white/90 capitalize tracking-wide'>
+                Proyectos realizados
+              </p>
+            </div>
 
-    if (countRef.current) observer.observe(countRef.current)
-
-    return () => observer.disconnect()
-  }, [])
-
-  useEffect(() => {
-    if (!isVisible) return
-
-    let startTime: number | null = null
-    let animationFrameId: number
-
-    const step = (timestamp: number) => {
-      if (!startTime) startTime = timestamp
-      const progress = Math.min((timestamp - startTime) / duration, 1)
-
-      // Función de aceleración suave (easeOutQuad)
-      const currentCount = Math.floor(progress * (2 - progress) * end)
-      setCount(currentCount)
-
-      if (progress < 1) {
-        animationFrameId = requestAnimationFrame(step)
-      }
-    }
-
-    animationFrameId = requestAnimationFrame(step)
-
-    return () => cancelAnimationFrame(animationFrameId)
-  }, [isVisible, end, duration])
-
-  return (
-    <span ref={countRef}>
-      {count.toLocaleString()}
-      {suffix}
-    </span>
-  )
-}
+          </div>
+        </section>
+    );
+};

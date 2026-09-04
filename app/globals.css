@@ -29,3 +29,24 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 } */
+
+
+/* Swiper Custom Navigation Visibility */
+.swiper-button-prev,
+.swiper-button-next {
+  color: #d41367 !important; /* Color personalizado para las flechas */
+  transition: opacity 0.3s ease;
+}
+
+/* En pantallas de escritorio, oculta por defecto y muestra en hover de la card o contenedor */
+@media (min-width: 768px) {
+  .swiper-custom-arrows .swiper-button-prev,
+  .swiper-custom-arrows .swiper-button-next {
+    opacity: 0;
+  }
+
+  .swiper-custom-arrows:hover .swiper-button-prev,
+  .swiper-custom-arrows:hover .swiper-button-next {
+    opacity: 1;
+  }
+}
