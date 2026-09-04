@@ -1,76 +1,95 @@
-# Esto le dice a Decap que use el sistema de archivos local para pruebas
 local_backend: true 
 backend:
   name: git-gateway
   branch: main
-publish_mode: editorial_workflow # va a hacer que el usuario pueda crear "borradores" con el fin de no tener que hacer un commit para cada cambio sis no que puede hacer todo el proceso y luego subirlo
+publish_mode: editorial_workflow
 
-
-media_folder: "public/images" # Las fotos se guardan físicamente aquí
-public_folder: "/images"       # Next.js las buscará en esta ruta
+media_folder: "public/images"
+public_folder: "/images"
 
 collections:
-  - name: "principalpageresources"
-    label: "recursos de la página principal"
-    folder: "content/principalpageresources" # Aquí se guardarán tus archivos .md
-    create: true
-    fields:
-      - { label: "Título", name: "title", widget: "string" }
-      - { label: "descripcion", name: "descripcion", widget: "text" }
-      - { label: "Imagen", name: "thumbnail", widget: "image" }
+  # 1. RECURSOS PÁGINA PRINCIPAL (Hero Swiper)
+  - name: "principalpage"
+    label: "Página Principal (Hero)"
+    files:
+      - name: "hero"
+        label: "Configuración del Hero / Swiper"
+        file: "content/principalpage/hero.json"
+        fields:
+          - { label: "Título Principal", name: "title", widget: "string" }
+          - { label: "Descripción", name: "description", widget: "text" }
+          - label: "Imágenes del Swiper / Slider"
+            name: "slides"
+            widget: "list"
+            summary: "{{fields.image}}"
+            field: { label: "Imagen", name: "image", widget: "image" }
 
+  # 2. CONTADORES / ESTADÍSTICAS (Archivo único tipo File Collection)
+  - name: "metrics"
+    label: "Métricas / Contadores"
+    files:
+      - name: "counters"
+        label: "Contadores de Impacto"
+        file: "content/metrics/counters.json"
+        fields:
+          - { label: "Número de Beneficiados", name: "beneficiariesCount", widget: "number", value_type: "int" }
+          - { label: "Socios Activos", name: "activePartnersCount", widget: "number", value_type: "int" }
+          - { label: "Proyectos Realizados", name: "completedProjectsCount", widget: "number", value_type: "int" }
 
+  # 3. PROYECTOS
   - name: "projects"
     label: "Proyectos"
     folder: "content/projects"
     create: true
+    slug: "{{slug}}"
     fields:
-      - { label: "Comite", name: "comittee", widget: "select", options: ["Comité 1", "Comité 2", "Comité 3"] }
-      - { label: "Titulo", name: "title", widget: "string" }
+      - { label: "Título del Proyecto", name: "title", widget: "string" }
+      - { label: "Slug (URL)", name: "slug", widget: "string", hint: "Ej: proyecto-salud-comunitaria" }
+      - { label: "Comité (Categoría)", name: "committee", widget: "select", options: ["Servicio a la Comunidad", "Desarrollo Profesional", "Finanzas", "Relaciones Internacionales", "Servicios Internos"] }
       - { label: "Descripción", name: "description", widget: "text" }
-      - { label: "Imagen", name: "thumbnail", widget: "image" }
+      - label: "Galería de Imágenes"
+        name: "images"
+        widget: "list"
+        field: { label: "Imagen", name: "image", widget: "image" }
 
-  - name: "socios"
-    label: "Socios"
-    folder: "content/socios"
+  # 4. JUNTA DIRECTIVA Y PRESIDENTES DE COMITÉ
+  - name: "leadership"
+    label: "Junta Directiva y Presidentes"
+    folder: "content/leadership"
     create: true
+    slug: "{{fields.name}}"
     fields:
-      - { label: "Nombre", name: "name", widget: "string" }
-      - { label: "Foto", name: "image", widget: "image" }
-      - label: "Cargo Directivo"
-        name: "role"
+      - { label: "Nombre Completo", name: "name", widget: "string" }
+      - label: "Tipo de Cargo"
+        name: "category"
         widget: "select"
-        default: "Miembro" # Si no tiene cargo, será un miembro común
         options:
-          - { label: "Ninguno / Miembro", value: "Miembro" }
-          - { label: "Presidente", value: "Presidente" }
-          - { label: "Vicepresidente", value: "Vicepresidente" }
-          - { label: "Secretaria", value: "Secretaria" }
-          - { label: "Tesorero", value: "Tesorero" }
-          - { label: "Macero", value: "Macero" }
-  
-  - name: "company_info"       # <--- 1. Nombre interno de la colección en el CMS
-    label: "Información General" # <--- 2. Título visible en el menú lateral de Decap
-    files:                     # <--- 3. Indica que esta colección tiene archivos individuales específicos
-      - name: "objectives"     # <--- 4. Identificador interno de este archivo en particular
-        label: "Mision, Vision y Objetivos de la Organización" # <--- 5. Título visible de esta sección en el CMS
-        file: "content/settings/objectives.md" # <--- 6. Ruta y nombre FÍSICO real del archivo en tu disco
-        fields:                # <--- 7. Los campos del formulario que el usuario va a llenar
-          - { label: "Titulo", name: "title", widget: "string" }
-          - { label: "Misión", name: "mission", widget: "text" }
-          - { label: "Visión", name: "vision", widget: "text" }
-          - label: "Lista de Objetivos"
-            name: "objectivesList"
-            widget: "list"
-            field: { label: "Objetivo", name: "objective", widget: "string" }
+          - { label: "Junta Directiva", value: "directiva" }
+          - { label: "Presidente de Comité", value: "presidente_comite" }
+      - { label: "Rol / Cargo", name: "role", widget: "string", hint: "Ej: Presidente, Tesorero, Presidente de Finanzas" }
+      - { label: "Fotografía", name: "image", widget: "image" }
+      - { label: "Biografía", name: "bio", widget: "text", required: false }
+      - { label: "Mensaje / Frase", name: "message", widget: "text", required: false }
 
-  - name: "events"
-    label: "Calendario de Actividades"
-    folder: "content/calendaryEvents" # Se crea un .md por cada evento
+  # 5. PRÓXIMOS PLANES / EVENTOS
+  - name: "plans"
+    label: "Próximos Planes"
+    folder: "content/plans"
     create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
     fields:
-      - { label: "Título de la Actividad", name: "title", widget: "string" }
-      - { label: "Fecha y Hora de Inicio", name: "startDate", widget: "datetime" }
-      - { label: "Fecha y Hora de Fin", name: "endDate", widget: "datetime", required: false }
-      - { label: "Descripción", name: "description", widget: "text", required: false }
-      - { label: "Ubicación", name: "location", widget: "string", required: false }
+      - { label: "Título del Plan", name: "title", widget: "string" }
+      - { label: "Comité (Categoría)", name: "committee", widget: "select", options: ["Servicio a la Comunidad", "Desarrollo Profesional", "Finanzas", "Relaciones Internacionales", "Servicios Internos"] }
+      - { label: "Fecha y Hora", name: "date", widget: "datetime" }
+      - { label: "Descripción", name: "description", widget: "text" }
+      - { label: "Imagen / Banner", name: "image", widget: "image" }
+
+  # 6. ALIADOS / PARTNERS
+  - name: "partners"
+    label: "Aliados"
+    folder: "content/partners"
+    create: true
+    slug: "{{fields.name}}"
+    fields:
+      - { label: "Nombre del Aliado", name: "name", widget: "string" }
+      - { label: "Logo / Imagen", name: "image", widget: "image" }
