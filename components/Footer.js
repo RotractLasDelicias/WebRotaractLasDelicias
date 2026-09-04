@@ -42,14 +42,15 @@ export default function Footer() {
                   Inicio
                 </Link>
               </li>
-              <li>
-                <Link href="/proyectos" className="hover:text-[#d41367] transition-colors">
-                  Proyectos
-                </Link>
-              </li>
+              
               <li>
                 <Link href="/nosotros" className="hover:text-[#d41367] transition-colors">
                   Nosotros
+                </Link>
+              </li>
+              <li>
+                <Link href="/unirse" className="hover:text-[#d41367] transition-colors">
+                  ¿Unirse?
                 </Link>
               </li>
               <li>
