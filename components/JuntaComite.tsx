@@ -14,8 +14,6 @@ export default function JuntaComite({ juntaOComite = 'junta'}: JuntaComiteProps)
     { id: '3', name: 'Nicolth Romero', role: 'Secretaria', bio:'Secretaria 2026-2027', image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT69x5C3hAXtXjG0l3CftgAAT9an5gyQKb-5HlakeonvQ&s=10' },
     { id: '4', name: 'Maria Fernanda Leañez', role: 'Tesorera', bio:'Tesorera 2026-2027', image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT69x5C3hAXtXjG0l3CftgAAT9an5gyQKb-5HlakeonvQ&s=10' },
     { id: '5', name: 'Omar Sanchez', role: 'Macero', bio:'Macero 2026-2027', image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSXUFTFeAXM411haTi5VmpI0cuWemg95Mu5-iJF34QYrw&s=10' },
-
-
   ];
 
   const leadershipSocios = socios.filter(socio => socio.role && socio.role !== 'Miembro');
