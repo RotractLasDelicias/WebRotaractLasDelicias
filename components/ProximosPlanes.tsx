@@ -37,7 +37,7 @@ export default function ProximosPlanes({ planes = [] }: ProximosPlanesProps) {
           {planes.map((plan) => (
             <div
               key={plan.id}
-              className='group flex flex-col w-full max-w-md bg-white rounded-2xl border border-gray-100 shadow-xl overflow-hidden hover:-translate-y-2 hover:shadow-2xl transition-all duration-300 text-left'
+              className='group flex flex-col w-full max-w-lg bg-white rounded-2xl border border-gray-100 shadow-xl overflow-hidden hover:-translate-y-2 hover:shadow-2xl transition-all duration-300 text-left'
             >
               {/* Imagen opcional / Thumbnail */}
               {plan.thumbnail && (

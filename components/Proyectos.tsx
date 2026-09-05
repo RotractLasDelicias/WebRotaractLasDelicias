@@ -143,7 +143,7 @@ function CardImageSwiper({ project }: { project: any }) {
   const imagesList = project.images && project.images.length > 0 ? project.images : [project.thumbnail];
 
   return (
-    <div className='w-full h-72 sm:h-96 bg-gray-100 relative group/img overflow-hidden'>
+    <div className='w-full h-72 sm:h-125 bg-gray-100 relative group/img overflow-hidden'>
       {/* Botón Anterior Imagen */}
       {imagesList.length > 1 && (
         <>

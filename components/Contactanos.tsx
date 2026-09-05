@@ -5,7 +5,7 @@ export default function Contactanos () {
 {/* Contacto Section */}
     return (
       
-      <section className='px-4 sm:px-6 md:px-10 my-16 md:my-24 max-w-7xl mx-auto'>
+      <section className='sm:px-6 md:px-10 my-6 md:my-10 max-w-7xl mx-auto'>
         <div className='bg-[#d41367] rounded-3xl md:rounded-[4rem] p-6 sm:p-10 md:p-16 text-white shadow-2xl overflow-hidden relative'>
           <div className='flex flex-col lg:flex-row gap-10 lg:gap-16 items-center justify-between relative z-10'>
             
@@ -27,8 +27,8 @@ export default function Contactanos () {
                 </p>
                 <div className='flex flex-wrap justify-center lg:justify-start gap-3'>
                   <a href='#' className='px-5 py-2.5 rounded-full bg-white/10 hover:bg-white hover:text-[#d41367] font-semibold transition-all duration-300 backdrop-blur-sm text-sm'>Instagram</a>
-                  <a href='#' className='px-5 py-2.5 rounded-full bg-white/10 hover:bg-white hover:text-[#d41367] font-semibold transition-all duration-300 backdrop-blur-sm text-sm'>Facebook</a>
-                  <a href='#' className='px-5 py-2.5 rounded-full bg-white/10 hover:bg-white hover:text-[#d41367] font-semibold transition-all duration-300 backdrop-blur-sm text-sm'>LinkedIn</a>
+                  <a href='#' className='px-5 py-2.5 rounded-full bg-white/10 hover:bg-white hover:text-[#d41367] font-semibold transition-all duration-300 backdrop-blur-sm text-sm'>TikTok</a>
+                  {/*<a href='#' className='px-5 py-2.5 rounded-full bg-white/10 hover:bg-white hover:text-[#d41367] font-semibold transition-all duration-300 backdrop-blur-sm text-sm'>LinkedIn</a>*/}
                 </div>
               </div>
             </div>

@@ -6,7 +6,7 @@ export default function Unetenos () {
               
       <section className='px-4 md:px-10 my-16 md:my-28 max-w-7xl mx-auto'>
         {/* Call to Action Section - Voluntariado & Alianzas */}
-        <div className='group relative flex flex-col items-center text-center p-8 sm:p-12 md:p-16 bg-white rounded-[4rem] shadow-2xl hover:shadow-[0_25px_50px_-12px_rgba(212,19,103,0.15)] hover:scale-[1.02] transition-all duration-500 cursor-pointer overflow-hidden'>
+        <div className='group relative flex flex-col items-center text-center p-8  sm:p-12 lg:p-16 bg-white rounded-[2rem] shadow-2xl hover:shadow-[0_25px_50px_-12px_rgba(212,19,103,0.15)] hover:scale-[1.02] transition-all duration-500 cursor-pointer overflow-hidden'>
           
           {/* Fondo decorativo sutil al hacer hover */}
           <div className='absolute inset-0 bg-gradient-to-br from-[#d41367]/5 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none' />

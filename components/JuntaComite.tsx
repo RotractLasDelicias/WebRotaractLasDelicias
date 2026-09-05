@@ -27,12 +27,15 @@ export default function JuntaComite({ juntaOComite = 'junta'}: JuntaComiteProps)
 
 
   return (
-    <section className='px-4 pt-20 md:px-10 my-16 mt-1 bg-white'>
+    <section className=' py-10 md:px-10 my-16 mt-1 bg-white'>
       
       {/* ========================================== */}
       {/* SECCIÓN 1: JUNTA DIRECTIVA (Estructura fija 2-3) */}
       {/* ========================================== */}
       <div className='flex flex-col items-center rounded-lg p-2 sm:p-4 md:p-6 mb-8 text-center'>
+        <span className='inline-block text-xs sm:text-sm font-bold uppercase tracking-widest text-[#d41367] bg-[#d41367]/10 px-4 py-1.5 rounded-full mb-4'>
+          Período 2026 - 2027
+        </span>
         <h2 className='text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-gray-900 tracking-tight'>
           Junta Directiva
         </h2>
@@ -52,7 +55,7 @@ export default function JuntaComite({ juntaOComite = 'junta'}: JuntaComiteProps)
               key={socio.id}
               className='group flex flex-col w-[90%] max-w-md md:w-[calc(50%-1rem)] bg-white rounded-2xl border border-gray-100 shadow-xl overflow-hidden hover:-translate-y-2 hover:shadow-2xl transition-all duration-300 mx-auto md:mx-0'
             >
-              <div className='w-full h-80 bg-gray-100 overflow-hidden relative cursor-pointer'>
+              <div className='w-full h-100 bg-gray-100 overflow-hidden relative cursor-pointer'>
                 <img
                   src={socio.image}
                   alt={socio.name}
@@ -91,7 +94,7 @@ export default function JuntaComite({ juntaOComite = 'junta'}: JuntaComiteProps)
               key={socio.id}
               className='group flex flex-col w-[90%] max-w-md md:w-[calc(33.333%-1.5rem)] bg-white rounded-2xl border border-gray-100 shadow-xl overflow-hidden hover:-translate-y-2 hover:shadow-2xl transition-all duration-300 mx-auto md:mx-0'
             >
-              <div className='w-full h-80 md:h-72 bg-gray-100 overflow-hidden relative cursor-pointer'>
+              <div className='w-full h-100 md:h-100 bg-gray-100 overflow-hidden relative cursor-pointer'>
                 <img
                   src={socio.image}
                   alt={socio.name}
@@ -133,9 +136,6 @@ export default function JuntaComite({ juntaOComite = 'junta'}: JuntaComiteProps)
           
           {/* Encabezado Comités */}
           <div className='flex flex-col items-center rounded-lg p-2 sm:p-4 md:p-6 mb-12 text-center'>
-            <span className='inline-block text-xs sm:text-sm font-bold uppercase tracking-widest text-[#d41367] bg-[#d41367]/10 px-4 py-1.5 rounded-full mb-4'>
-              Período 2026 - 2027
-            </span>
             <h2 className='text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-gray-900 tracking-tight'>
               Comités de Servicio
             </h2>

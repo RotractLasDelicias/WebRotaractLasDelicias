@@ -143,60 +143,9 @@ export default function ContribuyentesPage() {
       <div className='pb-10'>
         <JuntaComite juntaOComite="comite" />
       </div>
-      {/*<div className=' rounded-lg p-8 text-center'>
-        <h1 className='text-4xl font-bold mb-4'>Contribuyentes y liderazgo</h1>
-        <p className='text-lg mx-auto max-w-2xl'>Conoce a nuestro equipo principal y al conjunto de miembros que aportan día a día al proyecto.</p>
-        <a href='/contribuyentes' className='text-black font-semibold underline mt-4 inline-block'>Ver contribuyentes</a>
-      </div>
 
-      <div className='mt-8'>
-        <h2 className='text-2xl font-semibold mb-4 text-center'>Junta Directiva (lineal)</h2>
-        <div className='flex flex-wrap gap-4 justify-center mb-10'>
-          {liderazgo.length > 0
-            ? liderazgo.map((socio) => (
-                <div key={socio.id} className='w-full sm:w-1/2 md:w-1/3 p-4 border rounded-lg bg-white'>
-                  <p className='text-center font-bold'>{socio.name}</p>
-                  <p className='text-center text-sm text-gray-600'>{socio.role}</p>
-                </div>
-              ))
-            : [
-                { id: '1', name: 'Presidente', role: 'Liderazgo' },
-                { id: '2', name: 'Coordinador', role: 'Liderazgo' },
-              ].map((item) => (
-                <div key={item.id} className='w-full sm:w-1/2 md:w-1/3 p-4 border rounded-lg bg-white'>
-                  <p className='text-center font-bold'>{item.name}</p>
-                  <p className='text-center text-sm text-gray-600'>{item.role}</p>
-                </div>
-              ))}
-        </div>
-
-        <div className='pt-6 border-t border-gray-200'>
-          <h3 className='text-xl font-bold mb-3 text-center'>Miembros sin cargo específico</h3>
-          <div className='flex flex-wrap justify-center gap-4 min-h-[200px] min-w-[200px]'>
-            {(miembrosGenerales.length > 0 ? miembrosGenerales : [{ id: 'm1', name: 'Miembro A' }, { id: 'm2', name: 'Miembro B' }, { id: 'm3', name: 'Miembro C' }, { id: 'm4', name: 'Miembro D' }, { id: 'm5', name: 'Miembro E' }]).map((socio) => (
-              <div key={socio.id} className='p-3 border rounded-md bg-amber-100 text-sm text-center'>
-                <p className='font-semibold'>{socio.name}</p>
-                <p className='text-gray-600'>{socio.role || 'Miembro general'}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-
-        <div className='flex flex-col'>
-          <div className='flex flex-wrap justify-center gap-4'>
-            {displayLeadership.map(socio => (
-              <div key={socio.id} className='py-30 px-20 m-2 border rounded-xl relative bg-cover bg-center' style={{ backgroundImage: `url(${socio.image})` }}>
-                <div className='absolute bottom-4 left-4 text-white'>
-                  <h1 className='text-lg font-bold'>{socio.name}</h1>
-                  <p>{socio.role}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </div>*/}
-      {/* 3. SECCIÓN: CONTACTANOS */}
-      <div className='pb-10'>
+      {/* 4. SECCIÓN: CONTACTANOS */}
+      <div className='px-4'>
         <Contactanos />
       </div>
     </div>

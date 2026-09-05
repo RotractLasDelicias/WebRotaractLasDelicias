@@ -3,6 +3,7 @@
 import dynamic from 'next/dynamic';
 import React, { useEffect } from 'react';
 import Contactanos from '@/components/Contactanos';
+import ContactForm from '@/components/ContactForm';
 
 // Carga dinámica limpia sin errores de tipos o SSR
 const MapContainer = dynamic(
@@ -72,7 +73,7 @@ export default function ContactSection({
         </p>
       </div>
 
-      <div className='grid grid-cols-1 lg:grid-cols-2 gap-8 items-stretch'>
+      <div className='grid grid-cols-1 pb-10 lg:grid-cols-2 gap-8 items-stretch'>
         {/* Tarjeta Instagram */}
         <div className='bg-gradient-to-br from-white via-slate-50 to-pink-50/30 rounded-3xl p-8 border border-gray-100 shadow-xl flex flex-col justify-between relative overflow-hidden'>
           <div className='absolute -top-12 -right-12 w-40 h-40 bg-gradient-to-tr from-amber-500 via-[#d41367] to-purple-600 rounded-full opacity-10 blur-2xl pointer-events-none' />
@@ -171,10 +172,23 @@ export default function ContactSection({
         </div>
       </div>
 
-      <div className='pb-10'>
-         <Contactanos />
-      </div>
       
+
+
+     <div className='text-center pt-15'>
+       <h2 className='text-3xl sm:text-4xl font-extrabold text-gray-900 tracking-tight'>
+         Escribenos
+       </h2>
+       <p className='text-gray-600 text-sm sm:text-base mt-2 max-w-xl mx-auto'>
+         Asi termina de aclarar tus dudas, preguntas o sugerencias. Nuestro equipo de liderazgo está listo para escucharte.
+       </p>
+       <div className='p-4 sm:px-6 md:p-10 m-12 max-w-7xl mx-auto border border-gray-200 rounded-3xl shadow-lg bg-white'>
+        <ContactForm/>
+      </div>
+     </div>
+
+      
+
     </section>
   );
 }
