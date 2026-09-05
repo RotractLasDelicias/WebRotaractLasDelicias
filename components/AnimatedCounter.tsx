@@ -2,7 +2,7 @@ import { Counter } from '../components/Counter';
 
 export default function AnimatedCounter() {
     return (
-        <section className='my-12 pb-20 md:my-20 px-4 md:px-10 max-w-7xl mx-auto'>
+        <section className='my-12 py-10 md:my-20 px-4 md:px-10 max-w-7xl mx-auto'>
           <div className='grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 items-stretch'>
             
             {/* Tarjeta 1 */}

@@ -1,4 +1,5 @@
 import './globals.css'; // Importante para que Tailwind funcione
+import Script from 'next/script';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import { Providers } from './providers';
@@ -12,6 +13,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="es">
+      <head>
+        {/* Carga del SDK de Netlify Identity */}
+        <Script
+          src="https://identity.netlify.com/v1/netlify-identity-widget.js"
+          strategy="beforeInteractive"
+        />
+      </head>
       <body className="min-h-screen flex flex-col">
         <Providers>
           <Header />
@@ -30,6 +38,21 @@ export default function RootLayout({
           <Footer />
         </Providers>
         <ScrollToTop />
+
+        {/* Script que detecta los tokens de correo (#invite_token o #recovery_token) */}
+        <Script id="netlify-identity-redirect" strategy="afterInteractive">
+          {`
+            if (window.netlifyIdentity) {
+              window.netlifyIdentity.on("init", (user) => {
+                if (!user) {
+                  window.netlifyIdentity.on("login", () => {
+                    document.location.href = "/admin/";
+                  });
+                }
+              });
+            }
+          `}
+        </Script>
       </body>
     </html>
   );

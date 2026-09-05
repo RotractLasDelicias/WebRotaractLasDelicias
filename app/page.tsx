@@ -106,7 +106,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="flex flex-col lg:flex-row items-center justify-between gap-10 lg:gap-16 px-6 sm:px-10 md:px-12 my-16 md:my-24 max-w-7xl mx-auto">
+      <section className="flex flex-col lg:flex-row items-center justify-between gap-10 lg:gap-16 px-6 py-20 sm:px-10 pt-5 md:px-12 my-16 md:my-24 pt-15 max-w-7xl mx-auto">
         
         {/* Lado Izquierdo: Contenido de Texto */}
         <div className="w-full lg:w-1/2 flex flex-col justify-center items-center lg:items-start text-center lg:text-left">
@@ -163,36 +163,13 @@ export default function Home() {
       {/* Proyectos Section */}
       <ProyectosDark isHomePage={true}  />
 
-
-
-      {/* Junta Directiva Section 
-      <section className='px-4 md:px-10 my-16'>
-        <div className='flex flex-col md: justify-between items-center rounded-lg p-4 p-6'>
-          <h2 className='text-4xl font-bold text-center md: text-6xl w-full w-auto pb-10'>Junta Directiva</h2>
-          <a href='/contribuyentes' className='text-black font-bold underline'>Ver a todos los colaboradores</a>
-        </div>
-
-        <div className='flex flex-col'>
-          <div className='flex flex-wrap justify-center gap-4'>
-            {displayLeadership.map(socio => (
-              <div key={socio.id} className='py-20 px-10 m-2 border rounded-xl relative bg-cover bg-center' style={{ backgroundImage: `url(${socio.image})` }}>
-                <div className='absolute bottom-4 left-4 text-white'>
-                  <h1 className='text-lg font-bold'>{socio.name}</h1>
-                  <p>{socio.role}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>*/}
-
+       
       <JuntaComite />
 
+      
       <AnimatedCounter />
 
 
-
-            
 
 
       {/*<div className='px-4 md:px-10 my-16 text-center'>
@@ -223,7 +200,7 @@ export default function Home() {
         />
       </div>*/}
 
-
+      
       <ProximosPlanes planes={planesEstaticos} />
 
 
@@ -251,7 +228,9 @@ export default function Home() {
       {/*<InstagramSection/>*/}
       
 
-      <Contactanos/>
+      <div className='p-4'>
+        <Contactanos/>
+      </div>
  
     </div>
   );
