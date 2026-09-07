@@ -1,5 +1,4 @@
 import './globals.css'; // Importante para que Tailwind funcione
-import Script from 'next/script';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import { Providers } from './providers';

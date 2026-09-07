@@ -4,33 +4,9 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Admin - Rotaract Las Delicias</title>
-    <!-- Widget de Netlify Identity -->
-    <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
   </head>
   <body>
     <!-- Carga de Decap CMS -->
     <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
-
-    <script>
-      // 1. Verificar si hay un token en la URL al cargar
-      if (window.netlifyIdentity) {
-        window.netlifyIdentity.on("init", function(user) {
-          if (!user) {
-            window.netlifyIdentity.on("login", function() {
-              document.location.href = "/admin/";
-            });
-          }
-        });
-      }
-
-      // 2. Si la URL contiene un token de invitación/recuperación, abrir el modal forzado
-      document.addEventListener("DOMContentLoaded", function() {
-        if (window.location.hash.includes("invite_token") || window.location.hash.includes("recovery_token")) {
-          if (window.netlifyIdentity) {
-            window.netlifyIdentity.open();
-          }
-        }
-      });
-    </script>
   </body>
 </html>
